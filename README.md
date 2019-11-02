@@ -1,3 +1,4 @@
+![](https://github.com/zhangnew/TDI2/workflows/Android%20CI/badge.svg)
 # 无限塔防 2 Xposed 模块
 
 ## 特性
