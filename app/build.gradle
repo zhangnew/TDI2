@@ -1,5 +1,3 @@
-import com.google.common.io.Files
-
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -28,7 +26,7 @@ android {
                 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
             }
             // 如果需要发布版本，需要在 local.properties 中写入下面四个变量
-            storeFile file(keystoreProperties["storeFile"])
+            storeFile file(keystoreProperties.containsKey("storeFile") ? keystoreProperties['storeFile'] : "null")
             storePassword keystoreProperties.containsKey("storePassword") ? keystoreProperties['storePassword'] : System.getenv("storePassword")
             keyAlias keystoreProperties.containsKey("keyAlias") ? keystoreProperties['keyAlias'] : System.getenv("keyAlias")
             keyPassword keystoreProperties.containsKey("keyPassword") ? keystoreProperties['keyPassword'] : System.getenv("keyPassword")
